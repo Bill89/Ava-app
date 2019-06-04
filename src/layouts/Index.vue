@@ -4,7 +4,7 @@
     <keep-alive>
       <component
         class="root-content"
-        :is="currentTab"
+        :is="'HomePage'"
         :class="{'prod-slider': currentTab === 'ProductPage'}"
       ></component>
     </keep-alive>
