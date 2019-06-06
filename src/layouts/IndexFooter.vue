@@ -19,12 +19,12 @@
 </template>
 <script>
 import defaultIm1 from '@/assets/img/nav-home.png'
-import defaultIm2 from '@/assets/img/nav-product.png'
-import defaultIm3 from '@/assets/img/nav-discover.png'
+import defaultIm2 from '@/assets/img/nav-discover.png'
+import defaultIm3 from '@/assets/img/nav-product.png'
 import defaultIm4 from '@/assets/img/nav-me.png'
 import activeBtn1 from '@/assets/img/nav-home-active.png'
-import activeBtn2 from '@/assets/img/nav-product-active.png'
-import activeBtn3 from '@/assets/img/nav-discover-active.png'
+import activeBtn2 from '@/assets/img/nav-discover-active.png'
+import activeBtn3 from '@/assets/img/nav-product-active.png'
 import activeBtn4 from '@/assets/img/nav-me-active.png'
 import { extend } from '@/assets/js/utils'
 let defaultList = [
@@ -36,8 +36,15 @@ let defaultList = [
     unread: false
   },
   {
-    text: '游戏',
-    tab: 'ProductPage',
+    text: '计划',
+    tab: 'PlanPage',
+    defaultImg: defaultIm2,
+    activeImg: activeBtn2,
+    unread: false
+  },
+  {
+    text: '游戏大厅',
+    tab: 'GameHallPage',
     defaultImg: defaultIm2,
     activeImg: activeBtn2,
     unread: false
@@ -159,7 +166,7 @@ export default {
   background-color: #fff;
   box-shadow: 0 1px 4px #dddddd;
   & > div {
-    width: 25%;
+    width: 20%;
     padding: 0.25rem 0;
     box-sizing: border-box;
     .img {
@@ -180,6 +187,7 @@ export default {
       transform: translateX(-50%);
       line-height: 1rem;
       font-size: 0.63rem;
+      white-space: nowrap;
     }
   }
 }

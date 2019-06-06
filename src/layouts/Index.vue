@@ -1,33 +1,35 @@
 <template>
   <div class="root-layout">
-    <!-- 主页 -->
+    <!-- 内容 -->
     <keep-alive>
-      <component
-        class="root-content"
-        :is="'HomePage'"
-        :class="{'prod-slider': currentTab === 'ProductPage'}"
-      ></component>
+      <component class="root-content" :is="currentTab"></component>
     </keep-alive>
-    <!-- 底部导航 -->
     <index-footer v-model="currentTab"></index-footer>
   </div>
 </template>
 <script>
 import HomePage from '@/layouts/HomePage'
+import PlanPage from '@/layouts/PlanPage'
+import GameHallPage from '@/layouts/GameHallPage'
+import DiscoverPage from '@/layouts/DiscoverPage'
+import MePage from '@/layouts/MePage'
 import IndexFooter from '@/layouts/IndexFooter'
 
 export default {
   name: 'Index',
   data() {
     return {
-      currentTab: 'HomePage'
-      // currentTab: this.common.getSesVal('index_currentTab')
-      //   ? this.common.getSesVal('index_currentTab')
-      //   : 'HomePage'
+      currentTab: this.common.getSesVal('index_currentTab')
+        ? this.common.getSesVal('index_currentTab')
+        : 'HomePage'
     }
   },
   components: {
     HomePage,
+    PlanPage,
+    GameHallPage,
+    DiscoverPage,
+    MePage,
     IndexFooter
   },
   watch: {
@@ -54,8 +56,5 @@ export default {
   height: calc(100% - 3.125rem);
   width: 100%;
   box-sizing: border-box;
-  &.prod-slider {
-    height: calc(100% - 5.125rem);
-  }
 }
 </style>

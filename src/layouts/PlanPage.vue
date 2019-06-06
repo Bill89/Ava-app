@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <header class="bcblue tc f18 h44 lh44 white">首页</header>
+    <header class="bcblue tc f18 h44 lh44 white">计划</header>
     <div class="index-h ofh">
       <VScroll
         ref="nfScroll"
@@ -9,7 +9,7 @@
         :refreshColor="refreshColor"
         up
       >
-        我是首页
+        我是计划
         <!-- slot -->
         <slot></slot>
       </VScroll>
@@ -19,7 +19,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'HomePage',
+  name: 'PlanPage',
   data() {
     return {
       refresh: true,

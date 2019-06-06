@@ -1,15 +1,21 @@
+/* eslint-disable */
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import Navigation from 'vue-navigation'
 import CommonUi from '@/components/CommonUi'
+import common from '@/assets/js/common.js'
+
 import './registerServiceWorker'
 // 全局引入
 import './assets/css/basic.scss'
 
 Vue.use(Navigation, { router, keyName: '_p' })
 Vue.use(CommonUi)
+
+Vue.prototype.common = common
 
 Vue.config.productionTip = false
 Vue.config.errorHandler = (err, vm, info) => {
