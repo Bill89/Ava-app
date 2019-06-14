@@ -9,7 +9,17 @@
         :refreshColor="refreshColor"
         up
       >
-        我是首页
+        <v-swiper :swiperData="images" @slideClick="goBannerView"></v-swiper>
+        <div>
+          <VSwiper>
+            <!-- <template v-for="(image, index) in images">
+              <van-swipe-item :key="index">
+                <img v-lazy="image" height="100%">
+              </van-swipe-item>
+            </template>-->
+          </VSwiper>
+        </div>
+
         <!-- slot -->
         <slot></slot>
       </VScroll>
@@ -30,7 +40,21 @@ export default {
         // loadBgColor: this.CONSTS.meTopColor,
         // textColor: this.CONSTS.updateColor,
         // cirCleColor: this.CONSTS.jumpBcColor
-      }
+      },
+      images: [
+        {
+          url:
+            'http://sjbz.fd.zol-img.com.cn/t_s750x1334c/g5/M00/0B/0B/ChMkJliUSOeITI1nAHnnxyZwWQkAAZrMgCkzEsAeeff677.jpg'
+        },
+        {
+          url:
+            'http://sjbz.fd.zol-img.com.cn/t_s750x1334c/g5/M00/0B/0B/ChMkJliUSVuIZM2MALQYfOi1v5cAAZrNAEAneYAtBiU810.jpg'
+        },
+        {
+          url:
+            'http://sjbz.fd.zol-img.com.cn/t_s750x1334c/g5/M00/0B/0B/ChMkJ1iUTimIIOaiAL-Cez_5GXAAAZrPAHu3skAv4KT369.jpg'
+        }
+      ]
     }
   },
   components: {},
@@ -47,6 +71,17 @@ export default {
       deep: true
     }
   },
+  activated() {
+    this.$refs.nfScroll.refresh()
+  },
+  mounted() {
+    // 初始化页面按钮提示
+    // this.common.initPageBtns('HomePage', this.blocks)
+
+    setTimeout(() => {
+      this.onRefresh()
+    }, 200)
+  },
   methods: {
     // 下拉刷新
     onRefresh() {
@@ -61,18 +96,10 @@ export default {
     // 刷新视图，外层调用
     refreshView() {
       this.$refs.nfScroll.refresh()
+    },
+    goBannerView(data) {
+      console.log(data)
     }
-  },
-  activated() {
-    this.$refs.nfScroll.refresh()
-  },
-  mounted() {
-    // 初始化页面按钮提示
-    // this.common.initPageBtns('HomePage', this.blocks)
-
-    setTimeout(() => {
-      this.onRefresh()
-    }, 200)
   }
 }
 </script>
