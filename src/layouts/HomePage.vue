@@ -1,6 +1,12 @@
 <template>
   <div class="home-page">
-    <header class="bcblue tc f18 h44 lh44 white">首页</header>
+    <!-- <header class="bcblue tc f18 h44 lh44 white">首页</header> -->
+    <header class="h130 bcblue y-center x-center">
+      <div>
+        <h2>奖金池</h2>
+        <h4>总金额：999999</h4>
+      </div>
+    </header>
     <div class="index-h ofh">
       <VScroll
         ref="nfScroll"
@@ -9,16 +15,11 @@
         :refreshColor="refreshColor"
         up
       >
-        <v-swiper :swiperData="images" @slideClick="goBannerView"></v-swiper>
-        <div>
-          <VSwiper>
-            <!-- <template v-for="(image, index) in images">
-              <van-swipe-item :key="index">
-                <img v-lazy="image" height="100%">
-              </van-swipe-item>
-            </template>-->
-          </VSwiper>
-        </div>
+        <van-swipe :autoplay="5000">
+          <van-swipe-item v-for="(image, index) in images" :key="index">
+            <img v-lazy="image.url" height="150">
+          </van-swipe-item>
+        </van-swipe>
 
         <!-- slot -->
         <slot></slot>
@@ -44,17 +45,18 @@ export default {
       images: [
         {
           url:
-            'http://sjbz.fd.zol-img.com.cn/t_s750x1334c/g5/M00/0B/0B/ChMkJliUSOeITI1nAHnnxyZwWQkAAZrMgCkzEsAeeff677.jpg'
+            'http://www.meinv.hk/wp-content/themes/Grace/timthumb.php?src=http://www.meinv.hk/wp-content/uploads/2016/02/2019021316082568-e1550045363119.jpg&h=300&w=750&zc=1'
         },
         {
           url:
-            'http://sjbz.fd.zol-img.com.cn/t_s750x1334c/g5/M00/0B/0B/ChMkJliUSVuIZM2MALQYfOi1v5cAAZrNAEAneYAtBiU810.jpg'
+            'http://up.54fcnr.com/pic_360/02/58/c0/0258c0ac9f67cf15d0729b120830c2b5.gif'
         },
         {
           url:
-            'http://sjbz.fd.zol-img.com.cn/t_s750x1334c/g5/M00/0B/0B/ChMkJ1iUTimIIOaiAL-Cez_5GXAAAZrPAHu3skAv4KT369.jpg'
+            'http://www.90a.cc/images/upload/2018/08/17/ChOxM1t2nW-AM2pvAAD19oAZAL8026.jpg'
         }
-      ]
+      ],
+      gameHistorys: [{}]
     }
   },
   components: {},

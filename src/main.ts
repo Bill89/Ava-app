@@ -1,4 +1,5 @@
 /* eslint-disable */
+// 可以使用 // @ts-ignore 忽略下一行模块
 
 import Vue from 'vue'
 import App from './App.vue'
@@ -6,10 +7,10 @@ import router from './router'
 import store from './store'
 import Navigation from 'vue-navigation'
 import CommonUi from '@/components/CommonUi'
-import common from '@/assets/js/common.js'
+import common from '@/assets/js/common'
 
-import './registerServiceWorker'
 // 全局引入
+import './registerServiceWorker'
 import './assets/css/basic.scss'
 
 Vue.use(Navigation, { router, keyName: '_p' })

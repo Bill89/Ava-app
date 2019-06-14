@@ -91,48 +91,6 @@ h5 {
 small {
   font-size: 0.625rem;
 }
-//公共圆块样式
-.flex-box-radious {
-  border-radius: 50%;
-}
-//animiate style
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter,
-.slide-fade-leave-active {
-  transform: translateX(-430px);
-  opacity: 0;
-}
-//主题布局
-.c-main-nav {
-  display: fixed;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  width: 100%;
-  height: 3.06rem;
-  align-items: center;
-  background-color: #ffffff;
-  box-shadow: 0 0 1px #dddddd;
-  line-height: 0.88rem;
-}
-.c-main-nav .c-main-nav-link {
-  flex: 1;
-  text-align: center;
-  color: gray;
-  padding-top: 1.65rem;
-}
-.reset-top-bottom {
-  bottom: 2.75rem;
-  top: 2.75rem;
-}
-.only-top {
-  bottom: 0;
-}
 // 公共颜色
 .orange {
   color: #ff7f00;
@@ -176,6 +134,9 @@ small {
 // 背景色
 .bcfff {
   background-color: #ffffff !important;
+}
+.bcred {
+  background-color: red;
 }
 .bcblue {
   background-color: #256ef6;
@@ -264,167 +225,8 @@ small {
   background-color: rgba(201, 217, 247, 0.9) !important;
 }
 // ****=E 按钮规范****
-
-.block-text-flex {
-  display: flex;
-  background-color: white;
-  padding: 1rem;
-}
-.block-text-flex > div {
-  flex: 1;
-  padding: 0 1rem;
-  line-height: normal;
-}
-.mark-radius {
-  display: inline-block;
-  border: 1px solid #999;
-  border-radius: 1rem;
-  padding: 0 0.35rem;
-  font-size: 0.75rem;
-  margin-right: 0.8rem;
-  height: 1.2rem;
-  line-height: 1.3rem;
-}
-.text-center {
-  text-align: center;
-}
-.text-right {
-  text-align: right;
-}
-.pull-right {
-  float: right;
-}
-.pull-left {
-  float: left;
-}
-.bottom-space {
-  margin-bottom: 0.5rem;
-}
 .hide {
   display: none;
-}
-.margin-bottom8 {
-  margin-bottom: 0.5rem;
-}
-.pading-bottom-bar {
-  padding-bottom: 2.75rem;
-}
-// 空白行
-.blank-space {
-  height: 0.5rem;
-  background: #f5f5f5;
-}
-/*flex core*/
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 0 0 100%;
-}
-.flex > ul,
-.flex > li,
-.flex > div {
-  flex: 0 0 auto;
-}
-.flex-line {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 0 0 100%;
-}
-.flex-line > ul,
-.flex-line > li,
-.flex-line > div {
-  flex: 0 0 100%;
-}
-.flex-grid {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1 1 auto;
-}
-.flex-grid > ul,
-.flex-grid > li,
-.flex-grid > div {
-  flex: 1 1 auto;
-}
-.flex-grid1,
-.flex-grid2,
-.flex-grid3,
-.flex-grid4,
-.flex-grid5,
-.flex-grid6 {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 0 0 100%;
-}
-.flex-grid1 > ul,
-.flex-grid1 > li,
-.flex-grid1 > div {
-  flex: 0 0 100%;
-  overflow: hidden;
-}
-.flex-grid2 > ul,
-.flex-grid2 > li,
-.flex-grid2 > div {
-  flex: 0 0 50%;
-  overflow: hidden;
-}
-.flex-grid3 > ul,
-.flex-grid3 > li,
-.flex-grid3 > div {
-  flex: 0 0 33.333333%;
-  overflow: hidden;
-}
-.flex-grid4 > ul,
-.flex-grid4 > li,
-.flex-grid4 > div {
-  flex: 0 0 25%;
-  overflow: hidden;
-}
-.flex-grid5 > ul,
-.flex-grid5 > li,
-.flex-grid5 > div {
-  flex: 0 0 20%;
-  overflow: hidden;
-}
-.flex-grid6 > ul,
-.flex-grid6 > li,
-.flex-grid6 > div {
-  flex: 0 0 16.666667%;
-  overflow: hidden;
-}
-// 遮罩
-.masked {
-  position: fixed;
-}
-// 修复多层时的body滚动，底部按钮的隐藏
-.mask-fix {
-  overflow-y: hidden !important;
-  & + .fixedfoot {
-    z-index: -1;
-  }
-}
-// start common component ui
-
-// all nf buttons
-.nf-btn {
-  background: none;
-  text-align: center;
-  min-width: 3.75rem;
-  height: 1.5rem;
-  border: 1px solid #256ef6;
-  border-radius: 0.125rem;
-  line-height: 1.4rem;
-  color: #256ef6;
-  font-size: 0.75rem;
-}
-.nf-input {
-  background-color: transparent;
-  border: 1px solid #ededed;
-  border-radius: 2px;
-  height: 2rem;
-  margin-bottom: 0.5rem;
-}
-.l-p {
-  padding: 10px;
 }
 // 重置原生单复选框样式
 input[type='radio'] {
@@ -488,35 +290,6 @@ input[type='radio']:checked + .nf-radio::after {
 .or:before {
   left: 1rem;
 }
-// 基金详情色卡
-.pie-0 {
-  // 偏债类
-  background-color: #ff6e89;
-}
-.pie-1 {
-  // 偏股类
-  background-color: #3881ff;
-}
-.pie-2 {
-  background-color: #e9e491;
-}
-.pie-3 {
-  background-color: #ff9f70;
-}
-.pie-4 {
-  background-color: #3a5381;
-}
-//end common component ui
-// 详情列表小标题字体
-.s-title {
-  color: #999;
-  font-size: 0.75rem;
-}
-// 详情列表内容字体
-.f-content {
-  color: #666;
-  font-size: 0.88rem;
-}
 .f-box {
   display: flex;
   justify-content: center;
@@ -535,11 +308,8 @@ input[type='radio']:checked + .nf-radio::after {
   justify-content: space-between;
   align-items: center;
 }
-// 已重复，定义类名要先全局搜一下
-.flex-box {
+.flex {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .in-flex-box {
   display: inline-flex;
@@ -601,9 +371,6 @@ input[type='radio']:checked + .nf-radio::after {
 }
 .inline-block {
   display: inline-block;
-}
-.d-flex {
-  display: flex;
 }
 .border-box {
   box-sizing: border-box;
@@ -790,6 +557,9 @@ input[type='radio']:checked + .nf-radio::after {
 .w100 {
   width: 6.25rem;
 }
+.w120 {
+  width: 7.5rem;
+}
 .wb24 {
   width: 24%;
 }
@@ -872,8 +642,14 @@ input[type='radio']:checked + .nf-radio::after {
 .h50 {
   height: 3.125rem;
 }
+.h120 {
+  height: 7.5rem;
+}
 .h130 {
   height: 8.185rem;
+}
+.h150 {
+  height: 9.375rem;
 }
 .h320 {
   height: 20rem;
@@ -997,35 +773,6 @@ input[type='radio']:checked + .nf-radio::after {
   margin: 0 1rem 6px 1rem; //0.5rem;
   background-color: #ffffff;
 }
-.flex-box {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 0 0 100%;
-  padding: 0 1rem;
-  height: 3rem;
-  line-height: 3rem;
-  .col-free {
-    flex: 1 1 0;
-  }
-  .col-auto {
-    flex: 0 0 auto;
-  }
-}
-// 登录注册单行布局
-.flex-login {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  input {
-    margin-left: auto;
-    text-align: right;
-    border-width: 0;
-    outline: 0;
-    &::placeholder {
-      color: #999999;
-    }
-  }
-}
 .no-bd {
   border: none;
 }
@@ -1125,124 +872,6 @@ input[type='radio']:checked + .nf-radio::after {
     background-color: #cccccc;
   }
 }
-.nf-btn-large {
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.38rem;
-  border: none;
-  background-color: #256ef6;
-  color: white;
-  padding: 0.63rem 0;
-  margin-bottom: 1rem;
-  border-radius: 0.2rem;
-  // border-width: 1px solid #256EF6;
-  // 一般是边框和背景要分开定义不可加border:0!important;x先用border:none重置原生样式
-  outline: 0 !important;
-  &.disabled {
-    background-color: #dbdbdb;
-  }
-}
-.nf-btn-large-white {
-  width: 100%;
-  font-size: 1rem;
-  border: none;
-  background-color: #fff;
-  border: 1px solid #256ef6;
-  color: #256ef6;
-  padding: 0.63rem 0;
-  margin-bottom: 1rem;
-  border-radius: 0.2rem;
-  // border-width: 1px solid #256EF6;
-  // 一般是边框和背景要分开定义不可加border:0!important;x先用border:none重置原生样式
-  outline: 0 !important;
-  &.disabled {
-    background-color: #dbdbdb;
-  }
-}
-.fixedfoot {
-  button.disabled {
-    background-color: #dbdbdb;
-    border-color: #dbdbdb;
-    color: graytext;
-  }
-}
-.nf-btn-large-hollow {
-  width: 100%;
-  font-size: 1rem;
-  background-color: #ffffff;
-  color: #256ef6;
-  padding: 0.63rem 0;
-  margin-bottom: 1rem;
-  border: 1px solid #256ef6;
-  border-radius: 0.2rem;
-  outline: 0 !important;
-  &.disabled {
-    background-color: #dbdbdb;
-  }
-}
-// 资产交易确认中
-.remind-text {
-  height: 1.56rem;
-  padding: 0 1rem;
-  background-color: #fff6f3;
-  position: relative;
-  font-size: 0.625rem;
-  &::before {
-    content: '';
-    display: inline-block;
-    border-left: 0.8rem solid transparent;
-    border-right: 0.8rem solid transparent;
-    border-bottom: 0.8rem solid #fff6f3;
-    position: absolute;
-    top: -0.625rem;
-    left: 4vw;
-  }
-}
-// 区域垂直，水平居中
-.div-align-center {
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.inline-middle {
-  display: inline-block;
-  vertical-align: middle;
-}
-.flex-opposite {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.v-bottom {
-  position: relative;
-  top: 0.1rem;
-}
-
-// 一键清空密码框
-.clear-password-btn {
-  height: 1rem;
-  width: 1rem;
-  margin: auto 0 auto 1rem;
-}
-
-input#applysum {
-  padding-left: 0;
-}
-.bodybg {
-  background-color: #f5f5f5;
-}
-.headerbg {
-  background-color: #256ef6;
-}
-.text-body {
-  color: #333;
-}
-.text-note {
-  color: #999;
-}
-
 // ***************  各类边距 *******************
 .mt-b {
   margin-top: 6px;
@@ -1264,93 +893,4 @@ input#applysum {
 }
 .ma-b {
   margin: 6px;
-}
-
-// ***************  各类组件z轴 *****************
-.facial-recognition,
-.finger-print {
-  z-index: 3001;
-  .van-popup--right {
-    z-index: 3000 !important;
-  }
-}
-.van-toast {
-  z-index: 2999;
-}
-.van-dialog {
-  z-index: 2998;
-}
-.nf-loading {
-  z-index: 1501;
-}
-.loading-mask {
-  z-index: 1500;
-}
-.guide-mask {
-  z-index: 2002;
-}
-.online-service {
-  z-index: 2;
-}
-.transparent-border {
-  // 透明边框，加大点击区域
-  border: 0.5rem solid transparent;
-}
-// 未读消息--小圆点
-.unread {
-  position: relative;
-  &::before {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    background-color: #f61818;
-    position: absolute;
-    left: 100%;
-    top: 0;
-  }
-}
-// add by yyx
-.form-group {
-  display: flex;
-  background-color: white;
-  font-size: 0.875rem;
-  align-items: center;
-  // line-height: normal;
-  padding: 0.625rem 0;
-  & > span {
-    flex: 0 0 5rem;
-  }
-  & > input {
-    flex: 1 1 auto;
-    text-align: right;
-    vertical-align: middle;
-    box-sizing: border-box;
-    border: none;
-  }
-  & > input::placeholder {
-    font-size: 0.875rem;
-    color: #999;
-  }
-}
-.form-group-section {
-  padding: 0 1rem 0rem 1rem;
-  margin-bottom: 0.5rem;
-  background-color: white;
-}
-.form-group.add-icon {
-  & > span:first-child {
-    flex: 0 0 5rem;
-  }
-  & > span:last-child {
-    flex: 0 0 1rem;
-    // border:1px solid red;
-    height: 1rem;
-    width: 1.5rem;
-    margin-left: 0.5rem;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: 1rem 1rem;
-  }
 }
