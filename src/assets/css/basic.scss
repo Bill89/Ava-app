@@ -1,6 +1,11 @@
-// iphone 滚动问题
 * {
-  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch; // iphone 滚动问题
+}
+::-webkit-scrollbar {
+  display: none;
+  height: 0;
+  width: 0;
 }
 //开始浏览器重置
 html,
@@ -372,6 +377,13 @@ input[type='radio']:checked + .nf-radio::after {
 .inline-block {
   display: inline-block;
 }
+.box {
+  display: -moz-box;
+  display: -webkit-box;
+}
+.float-l {
+  float: left;
+}
 .border-box {
   box-sizing: border-box;
 }
@@ -420,6 +432,10 @@ input[type='radio']:checked + .nf-radio::after {
 .plr8 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+.plr10 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 .plr16 {
   padding-left: 1rem;
@@ -494,6 +510,9 @@ input[type='radio']:checked + .nf-radio::after {
 }
 .mb16 {
   margin-bottom: 1rem;
+}
+.ml6 {
+  margin-left: 6px;
 }
 .ml8 {
   margin-left: 0.5rem;

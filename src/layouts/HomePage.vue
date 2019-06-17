@@ -7,7 +7,7 @@
         <h4>总金额：999999</h4>
       </div>
     </header>
-    <div class="index-h ofh">
+    <div class="index-h ofh plr10">
       <VScroll
         ref="nfScroll"
         @refresh="onRefresh"
@@ -15,12 +15,18 @@
         :refreshColor="refreshColor"
         up
       >
-        <van-swipe :autoplay="5000">
+        <van-swipe :autoplay="5000" class="mt10">
           <van-swipe-item v-for="(image, index) in images" :key="index">
             <img v-lazy="image.url" height="150">
           </van-swipe-item>
         </van-swipe>
-
+        <section-box title="历史游戏" class="mt10">
+          <div class="of-x">
+            <div class="box">
+              <history-item v-for="(image, index) in 10" :key="index" :class="index && 'ml6'"></history-item>
+            </div>
+          </div>
+        </section-box>
         <!-- slot -->
         <slot></slot>
       </VScroll>
@@ -29,8 +35,12 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import HistoryItem from '@/views/home/HistoryItem'
 export default {
   name: 'HomePage',
+  components: {
+    HistoryItem
+  },
   data() {
     return {
       refresh: true,
@@ -59,7 +69,6 @@ export default {
       gameHistorys: [{}]
     }
   },
-  components: {},
   computed: {
     chinesered() {
       return this.theme === 'chinesered' ? 'chinesered' : ''

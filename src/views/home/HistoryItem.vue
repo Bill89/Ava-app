@@ -1,5 +1,5 @@
 <template>
-  <div class="HistoryItem bcfff w120 h150"></div>
+  <div class="HistoryItem bcfff w120 h150">asdgf</div>
 </template>
 
 <script lang="ts">
@@ -12,3 +12,9 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.HistoryItem {
+  // float: left;
+}
+</style>
