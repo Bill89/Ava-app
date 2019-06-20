@@ -23,7 +23,12 @@
         <section-box title="历史游戏" class="mt10">
           <div class="of-x">
             <div class="box">
-              <history-item v-for="(image, index) in 10" :key="index" :class="index && 'ml6'"></history-item>
+              <history-item
+                v-for="(image, index) in images"
+                :key="index"
+                :class="index && 'ml6'"
+                :data="image"
+              ></history-item>
             </div>
           </div>
         </section-box>
@@ -54,14 +59,32 @@ export default {
       },
       images: [
         {
+          gameName: '欢乐生肖',
           url:
             'http://www.meinv.hk/wp-content/themes/Grace/timthumb.php?src=http://www.meinv.hk/wp-content/uploads/2016/02/2019021316082568-e1550045363119.jpg&h=300&w=750&zc=1'
         },
         {
+          gameName: '分分彩',
           url:
             'http://up.54fcnr.com/pic_360/02/58/c0/0258c0ac9f67cf15d0729b120830c2b5.gif'
         },
         {
+          gameName: '电竞',
+          url:
+            'http://www.90a.cc/images/upload/2018/08/17/ChOxM1t2nW-AM2pvAAD19oAZAL8026.jpg'
+        },
+        {
+          gameName: '欢乐生肖',
+          url:
+            'http://www.meinv.hk/wp-content/themes/Grace/timthumb.php?src=http://www.meinv.hk/wp-content/uploads/2016/02/2019021316082568-e1550045363119.jpg&h=300&w=750&zc=1'
+        },
+        {
+          gameName: '分分彩',
+          url:
+            'http://up.54fcnr.com/pic_360/02/58/c0/0258c0ac9f67cf15d0729b120830c2b5.gif'
+        },
+        {
+          gameName: '电竞',
           url:
             'http://www.90a.cc/images/upload/2018/08/17/ChOxM1t2nW-AM2pvAAD19oAZAL8026.jpg'
         }

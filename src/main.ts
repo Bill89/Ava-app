@@ -8,6 +8,7 @@ import store from './store'
 import Navigation from 'vue-navigation'
 import CommonUi from '@/components/CommonUi'
 import common from '@/assets/js/common'
+import utils from '@/assets/js/utils'
 
 // 全局引入
 import './registerServiceWorker'
@@ -17,6 +18,7 @@ Vue.use(Navigation, { router, keyName: '_p' })
 Vue.use(CommonUi)
 
 Vue.prototype.common = common
+Vue.prototype.utils = utils
 
 Vue.config.productionTip = false
 Vue.config.errorHandler = (err, vm, info) => {

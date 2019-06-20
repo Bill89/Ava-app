@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VScroll from './VScroll'
 import Tabs from './Tabs'
 import SectionBox from './SectionBox'
+import Countdown from './Countdown'
 import { Lazyload, Swipe, SwipeItem } from 'vant'
 
 Vue.use(Lazyload)
@@ -12,6 +13,7 @@ const CommonUi = {
     Vue.component('VScroll', { extends: VScroll })
     Vue.component('VTabs', { extends: Tabs })
     Vue.component('SectionBox', { extends: SectionBox })
+    Vue.component('Countdown', { extends: Countdown })
   }
 }
 export default CommonUi

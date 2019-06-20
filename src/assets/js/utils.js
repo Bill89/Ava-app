@@ -33,7 +33,7 @@ export function orderBy(list, key, direction) {
  */
 export function decimals(value, num = 2) {
   if (value === '--') return value
-  if (typeof value === 'undefined' || typeof value === 'object' || value === '') return '--'
+  if (typeof value === 'undefined' || typeof value === 'object' || value === '') { return '--' }
   if (escape(value).indexOf('%u') !== -1) return value
   value = value.toString()
   let valueRex = /.*\..*/
@@ -58,13 +58,22 @@ export function formatDate(value, fmt) {
   if (!value || !fmt) return '--'
   if (value && value.length === 8) {
     // 20180808
-    value = new Date(value.substring(0, 4) + '/' + value.substring(4, 6) + '/' + value.substring(6, 8))
+    value = new Date(
+      value.substring(0, 4) +
+        '/' +
+        value.substring(4, 6) +
+        '/' +
+        value.substring(6, 8)
+    )
   }
   if (typeof value === 'string') {
     value = new Date(value.replace(/-/g, '/'))
   }
   if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, (value.getFullYear() + '').substr(4 - RegExp.$1.length))
+    fmt = fmt.replace(
+      RegExp.$1,
+      (value.getFullYear() + '').substr(4 - RegExp.$1.length)
+    )
   }
   value = typeof value === 'object' ? value : new Date(value.replace(/-/g, '/'))
   let o = {
@@ -77,7 +86,10 @@ export function formatDate(value, fmt) {
   for (let k in o) {
     if (new RegExp(`(${k})`).test(fmt)) {
       let str = o[k] + ''
-      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : ('00' + str).substr(str.length))
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1 ? str : ('00' + str).substr(str.length)
+      )
     }
   }
   return fmt
@@ -93,11 +105,11 @@ export function formatDate(value, fmt) {
  */
 export function upratio(value, opt, defStr = '--') {
   if (value === defStr) return defStr
-  if (typeof value === 'undefined' || typeof value === 'object' || value === '') return defStr
+  if (typeof value === 'undefined' || typeof value === 'object' || value === '') { return defStr }
   if (escape(value).indexOf('%u') !== -1) return value
-  let num = (opt && opt.num) ? opt.num : 2
+  let num = opt && opt.num ? opt.num : 2
   value = value.toString()
-  if (opt && opt.removeZero && parseFloat(value.replace('%', '')) === 0) return defStr
+  if (opt && opt.removeZero && parseFloat(value.replace('%', '')) === 0) { return defStr }
   let valueRex = /.*\..*/
   if (valueRex.test(value)) {
     let weishu = value.split('.')[1].length
@@ -105,7 +117,7 @@ export function upratio(value, opt, defStr = '--') {
   } else {
     value = parseFloat(+value).toFixed(num)
   }
-  return (opt && opt.symbol !== undefined) ? (value + opt.symbol) : (value + '%')
+  return opt && opt.symbol !== undefined ? value + opt.symbol : value + '%'
 }
 /**
  *
@@ -144,19 +156,19 @@ export function getCycle(data, type) {
       fixdPeriod = '周'
     }
     if (data.jyrq === '2') {
-      fixdate = (data.jyzq === '2' ? '每双周周一' : '每周周一')
+      fixdate = data.jyzq === '2' ? '每双周周一' : '每周周一'
     }
     if (data.jyrq === '3') {
-      fixdate = (data.jyzq === '2' ? '每双周周二' : '每周周二')
+      fixdate = data.jyzq === '2' ? '每双周周二' : '每周周二'
     }
     if (data.jyrq === '4') {
-      fixdate = (data.jyzq === '2' ? '每双周周三' : '每周周三')
+      fixdate = data.jyzq === '2' ? '每双周周三' : '每周周三'
     }
     if (data.jyrq === '5') {
-      fixdate = (data.jyzq === '2' ? '每双周周四' : '每周周四')
+      fixdate = data.jyzq === '2' ? '每双周周四' : '每周周四'
     }
     if (data.jyrq === '6') {
-      fixdate = (data.jyzq === '2' ? '每双周周五' : '每周周五')
+      fixdate = data.jyzq === '2' ? '每双周周五' : '每周周五'
     }
   }
   if (type === 's') {
@@ -193,7 +205,7 @@ export function fixFloatAdd(num1, num2) {
     r2 = 0
   }
   m = Math.pow(10, Math.max(r1, r2))
-  n = (r1 >= r2) ? r1 : r2
+  n = r1 >= r2 ? r1 : r2
   return ((num1 * m + num2 * m) / m).toFixed(n)
 }
 
@@ -209,7 +221,7 @@ export function fixFloatSub(num1, num2) {
   } catch (e) {
     r2 = 0
   }
-  n = (r1 >= r2) ? r1 : r2
+  n = r1 >= r2 ? r1 : r2
   m = Math.pow(10, Math.max(r1, r2))
   return ((num1 * m - num2 * m) / m).toFixed(n)
 }
@@ -222,7 +234,11 @@ export function fixFloatMul(num1, num2) {
   try {
     m += num2.toString().split('.')[1].length
   } catch (e) {}
-  return (Number(num1.toString().replace('.', '')) * Number(num2.toString().replace('.', ''))) / Math.pow(10, m)
+  return (
+    (Number(num1.toString().replace('.', '')) *
+      Number(num2.toString().replace('.', ''))) /
+    Math.pow(10, m)
+  )
 }
 
 export function fixFloatDiv(arg1, arg2) {
