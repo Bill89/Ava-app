@@ -411,6 +411,9 @@ input[type='radio']:checked + .nf-radio::after {
 .pt16 {
   padding-top: 1rem;
 }
+.pb6 {
+  padding-bottom: 0.375rem;
+}
 .pb8 {
   padding-bottom: 0.5rem;
 }
@@ -460,8 +463,14 @@ input[type='radio']:checked + .nf-radio::after {
 .m0-auto {
   margin: 0 auto;
 }
+.m10 {
+  margin: 0.625rem;
+}
 .m16 {
   margin: 1rem;
+}
+.mt6 {
+  margin-top: 0.375rem;
 }
 .mt8 {
   margin-top: 0.5rem;
@@ -514,8 +523,11 @@ input[type='radio']:checked + .nf-radio::after {
 .mb16 {
   margin-bottom: 1rem;
 }
+.ml4 {
+  margin-left: 0.25rem;
+}
 .ml6 {
-  margin-left: 6px;
+  margin-left: 0.375rem;
 }
 .ml8 {
   margin-left: 0.5rem;
@@ -528,6 +540,10 @@ input[type='radio']:checked + .nf-radio::after {
 }
 .ml48 {
   margin-left: 3rem;
+}
+.mlr10 {
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
 }
 .mlr16 {
   margin-left: 1rem;
@@ -736,6 +752,12 @@ input[type='radio']:checked + .nf-radio::after {
 .br2 {
   border-radius: 2px;
 }
+.br3 {
+  border-radius: 3px;
+}
+.br4 {
+  border-radius: 4px;
+}
 .br40 {
   border-radius: 2.5rem;
 }
@@ -893,26 +915,4 @@ input[type='radio']:checked + .nf-radio::after {
     margin: 0 1rem;
     background-color: #cccccc;
   }
-}
-// ***************  各类边距 *******************
-.mt-b {
-  margin-top: 6px;
-}
-.mb-b {
-  margin-bottom: 6px;
-}
-.ml-b {
-  margin-left: 6px;
-}
-.mr-b {
-  margin-right: 6px;
-}
-.mv-b {
-  margin: 6px 0;
-}
-.mh-b {
-  margin: 0 6px;
-}
-.ma-b {
-  margin: 6px;
 }

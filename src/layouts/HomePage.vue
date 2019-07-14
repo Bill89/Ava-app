@@ -1,13 +1,7 @@
 <template>
   <div class="home-page">
-    <!-- <header class="bcblue tc f18 h44 lh44 white">首页</header> -->
-    <header class="h130 bcblue y-center x-center">
-      <div>
-        <h2>奖金池</h2>
-        <h4>总金额：999999</h4>
-      </div>
-    </header>
-    <div class="index-h ofh plr10">
+    <header class="bcblue tc f18 h44 lh44 white">首页</header>
+    <div class="index-h ofh">
       <VScroll
         ref="nfScroll"
         @refresh="onRefresh"
@@ -15,25 +9,37 @@
         :refreshColor="refreshColor"
         up
       >
-        <van-swipe :autoplay="5000" class="mt10">
-          <van-swipe-item v-for="(image, index) in images" :key="index">
-            <img v-lazy="image.url" height="150">
-          </van-swipe-item>
-        </van-swipe>
-        <section-box title="历史游戏" class="mt10">
-          <div class="of-x">
-            <div class="box">
-              <history-item
-                v-for="(image, index) in images"
-                :key="index"
-                :class="index && 'ml6'"
-                :data="image"
-              ></history-item>
+        <div class="pb6">
+          <header class="h130 bcblue y-center x-center">
+            <div>
+              <h2>奖金池</h2>
+              <h4>总金额：999999</h4>
             </div>
-          </div>
-        </section-box>
-        <!-- slot -->
-        <slot></slot>
+          </header>
+          <van-swipe :autoplay="5000" class="mt6">
+            <van-swipe-item v-for="(image, index) in images" :key="index">
+              <img v-lazy="image.url" height="150" />
+            </van-swipe-item>
+          </van-swipe>
+          <section-box title="历史游戏" class="m10">
+            <swiper-card :swiperData="images" slideWidth="100px" spaceBetweenSlide="10">
+              <div slot="slideCard" slot-scope="slide">
+                <history-item :data="slide.item"></history-item>
+              </div>
+            </swiper-card>
+            <!-- <div class="of-x">
+            <div class="box">-->
+
+            <!-- </div>
+            </div>-->
+          </section-box>
+          <section-box title="热门游戏" class="mlr10">
+            <home-game-item></home-game-item>
+            <home-game-item></home-game-item>
+          </section-box>
+          <!-- slot -->
+          <slot></slot>
+        </div>
       </VScroll>
     </div>
   </div>
@@ -41,21 +47,20 @@
 <script>
 import { mapGetters } from 'vuex'
 import HistoryItem from '@/views/home/HistoryItem'
+import HomeGameItem from '@/views/home/HomeGameItem'
 export default {
   name: 'HomePage',
   components: {
-    HistoryItem
+    HistoryItem,
+    HomeGameItem
   },
   data() {
     return {
       refresh: true,
       refreshColor: {
-        loadBgColor: '',
-        textColor: '',
-        cirCleColor: ''
-        // loadBgColor: this.CONSTS.meTopColor,
-        // textColor: this.CONSTS.updateColor,
-        // cirCleColor: this.CONSTS.jumpBcColor
+        loadBgColor: this.CONSTS.homeTopColor,
+        textColor: this.CONSTS.updateColor,
+        cirCleColor: this.CONSTS.jumpBcColor
       },
       images: [
         {
@@ -139,5 +144,10 @@ export default {
 </script>
 <style scoped lang="scss">
 .home-page {
+  .index-h {
+    box-sizing: border-box;
+    height: calc(100% - 2.75rem);
+    // position: relative;
+  }
 }
 </style>

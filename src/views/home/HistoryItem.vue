@@ -1,6 +1,6 @@
 <template>
-  <div class="HistoryItem bcfff w100 h150 tc">
-    <img class="gameLogo mt10" v-lazy="data.url">
+  <div class="HistoryItem bcfff w100 h150 tc br3">
+    <img class="gameLogo mt10" v-lazy="data.url" />
     <p>{{ data.gameName }}</p>
     <!-- <p class="red">{{ dateTime }}</p> -->
     <countdown class="red" :endDate="endTime"></countdown>

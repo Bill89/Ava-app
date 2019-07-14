@@ -1,0 +1,11 @@
+// 重置vant ui
+.van-button {
+  height: 34px;
+  line-height: 32px;
+  border-radius: 17px;
+}
+
+.van-icon,
+.van-icon::before {
+  vertical-align: text-top;
+}
