@@ -13,4 +13,4 @@ pipelines:
         caches:
           - node
         script: # Modify the commands below to build your repository.
-          - npx vue-cli-service serve build
+          - npx vue-cli-service build
