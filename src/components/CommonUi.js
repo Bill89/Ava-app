@@ -4,12 +4,13 @@ import Tabs from './Tabs'
 import SectionBox from './SectionBox'
 import Countdown from './Countdown'
 import SwiperCard from './SwiperCard'
-import { Lazyload, Swipe, SwipeItem, Button, Icon } from 'vant'
+import { Lazyload, Swipe, SwipeItem, Button, Icon, Search } from 'vant'
 
 Vue.use(Lazyload)
 Vue.use(Swipe).use(SwipeItem)
 Vue.use(Button)
 Vue.use(Icon)
+Vue.use(Search)
 
 const CommonUi = {
   install: function(Vue) {

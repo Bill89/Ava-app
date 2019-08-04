@@ -9,7 +9,12 @@
         :refreshColor="refreshColor"
         up
       >
-        我是计划
+        <section-box title="部分游戏计划" class="m10">
+          <p>高中将排名</p>
+          <p>稳健性</p>
+          <p>保守型</p>
+          <p>自定义计划，如果指定彩种，按自定义计划开奖后，则消息提示用户</p>
+        </section-box>
         <!-- slot -->
         <slot></slot>
       </VScroll>

@@ -9,7 +9,7 @@
         :refreshColor="refreshColor"
         up
       >
-        我的
+        <section-box title="用户信息" class="m10">包括资金、等级、充值、提现、投注记录、消息、设置等</section-box>
         <!-- slot -->
         <slot></slot>
       </VScroll>

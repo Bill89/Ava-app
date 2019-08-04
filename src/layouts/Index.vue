@@ -11,7 +11,7 @@
 import HomePage from '@/layouts/HomePage'
 import PlanPage from '@/layouts/PlanPage'
 import GameHallPage from '@/layouts/GameHallPage'
-import DiscoverPage from '@/layouts/DiscoverPage'
+import TrendPage from '@/layouts/TrendPage'
 import MePage from '@/layouts/MePage'
 import IndexFooter from '@/layouts/IndexFooter'
 
@@ -28,7 +28,7 @@ export default {
     HomePage,
     PlanPage,
     GameHallPage,
-    DiscoverPage,
+    TrendPage,
     MePage,
     IndexFooter
   },

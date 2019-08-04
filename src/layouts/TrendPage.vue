@@ -9,7 +9,7 @@
         :refreshColor="refreshColor"
         up
       >
-        我是DiscoverPage
+        <section-box title="所有彩票走势" class="m10">可自定义排序</section-box>
         <!-- slot -->
         <slot></slot>
       </VScroll>
@@ -19,7 +19,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'DiscoverPage',
+  name: 'TrendPage',
   data() {
     return {
       refresh: true,

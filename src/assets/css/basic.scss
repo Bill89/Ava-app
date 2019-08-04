@@ -404,12 +404,15 @@ input[type='radio']:checked + .nf-radio::after {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.ptb16 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.pt10 {
+  padding-top: 0.625rem;
 }
 .pt16 {
   padding-top: 1rem;
+}
+.ptb16 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .pb6 {
   padding-bottom: 0.375rem;
@@ -679,6 +682,9 @@ input[type='radio']:checked + .nf-radio::after {
 }
 .h50 {
   height: 3.125rem;
+}
+.h100 {
+  height: 6.25rem;
 }
 .h120 {
   height: 7.5rem;

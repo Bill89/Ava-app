@@ -147,7 +147,6 @@ export default {
   .index-h {
     box-sizing: border-box;
     height: calc(100% - 2.75rem);
-    // position: relative;
   }
 }
 </style>

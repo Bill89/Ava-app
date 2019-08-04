@@ -11,7 +11,7 @@
       :style="{'color': currentTab === item.tab ? activeColor : defaultColor}"
     >
       <span class="img" :class="{'unread': item.unread || (i === 3 && msgUnreads)}">
-        <img :src="currentTab === item.tab ? item.activeImg : item.defaultImg">
+        <img :src="currentTab === item.tab ? item.activeImg : item.defaultImg" />
       </span>
       <p class="text absolute">{{ item.text }}</p>
     </div>
@@ -51,7 +51,7 @@ let defaultList = [
   },
   {
     text: '走势',
-    tab: 'DiscoverPage',
+    tab: 'TrendPage',
     defaultImg: defaultIm3,
     activeImg: activeBtn3,
     unread: false
