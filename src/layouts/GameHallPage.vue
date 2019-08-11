@@ -18,46 +18,88 @@
         up
       >
         <section-box title="福利彩票" class="m10">
-          <div class="welfare-container">
-            <template v-for="(item, i) in hallData.welfareList">
-              <GameItem :item="item" :key="i" class="wb30" :class="i > 2 && 'mt10'"></GameItem>
-            </template>
-          </div>
+          <van-grid :column-num="3" gutter="10" :border="false" clickable>
+            <van-grid-item
+              v-for="(item, i) in hallData.welfareList"
+              :key="i"
+              :icon="item.url"
+              to="/"
+              :text="item.label"
+              class="border-box"
+            >
+              <img slot="icon" v-lazy="item.url" width="57" height="57" class="mb8" />
+            </van-grid-item>
+          </van-grid>
         </section-box>
         <section-box title="体育彩票" class="m10">
-          <div class="welfare-container">
-            <template v-for="(item, i) in hallData.sportsList">
-              <GameItem :item="item" :key="i" class="wb30" :class="i > 2 && 'mt10'"></GameItem>
-            </template>
-          </div>
+          <van-grid :column-num="3" gutter="10" :border="false" clickable>
+            <van-grid-item
+              v-for="(item, i) in hallData.sportsList"
+              :key="i"
+              :icon="item.url"
+              to="/"
+              :text="item.label"
+              class="border-box"
+            >
+              <img slot="icon" v-lazy="item.url" width="57" height="57" class="mb8" />
+            </van-grid-item>
+          </van-grid>
         </section-box>
         <section-box title="电子竞技" class="m10">
-          <div class="welfare-container">
-            <template v-for="(item, i) in hallData.welfareList.slice(0, 3)">
-              <GameItem :item="item" :key="i" class="wb30" :class="i > 2 && 'mt10'"></GameItem>
-            </template>
-          </div>
+          <van-grid :column-num="3" gutter="10" :border="false" clickable>
+            <van-grid-item
+              v-for="(item, i) in hallData.welfareList.slice(0, 3)"
+              :key="i"
+              :icon="item.url"
+              to="/"
+              :text="item.label"
+              class="border-box"
+            >
+              <img slot="icon" v-lazy="item.url" width="57" height="57" class="mb8" />
+            </van-grid-item>
+          </van-grid>
         </section-box>
         <section-box title="时时彩" class="m10">
-          <div class="welfare-container">
-            <template v-for="(item, i) in hallData.sportsList.slice(0, 3)">
-              <GameItem :item="item" :key="i" class="wb30" :class="i > 2 && 'mt10'"></GameItem>
-            </template>
-          </div>
+          <van-grid :column-num="3" gutter="10" :border="false" clickable>
+            <van-grid-item
+              v-for="(item, i) in hallData.sportsList.slice(0, 3)"
+              :key="i"
+              :icon="item.url"
+              to="/"
+              :text="item.label"
+              class="border-box"
+            >
+              <img slot="icon" v-lazy="item.url" width="57" height="57" class="mb8" />
+            </van-grid-item>
+          </van-grid>
         </section-box>
         <section-box title="高频彩" class="m10">
-          <div class="welfare-container">
-            <template v-for="(item, i) in hallData.welfareList.slice(0, 3)">
-              <GameItem :item="item" :key="i" class="wb30" :class="i > 2 && 'mt10'"></GameItem>
-            </template>
-          </div>
+          <van-grid :column-num="3" gutter="10" :border="false" clickable>
+            <van-grid-item
+              v-for="(item, i) in hallData.welfareList.slice(0, 3)"
+              :key="i"
+              :icon="item.url"
+              to="/"
+              :text="item.label"
+              class="border-box"
+            >
+              <img slot="icon" v-lazy="item.url" width="57" height="57" class="mb8" />
+            </van-grid-item>
+          </van-grid>
         </section-box>
         <section-box title="低频彩" class="m10">
-          <div class="welfare-container">
-            <template v-for="(item, i) in hallData.sportsList.slice(0, 3)">
-              <GameItem :item="item" :key="i" class="wb30" :class="i > 2 && 'mt10'"></GameItem>
-            </template>
-          </div>
+          <van-grid :column-num="3" gutter="10" :border="false" clickable>
+            <van-grid-item
+              v-for="(item, i) in hallData.sportsList.slice(0, 3)"
+              :key="i"
+              :icon="item.url"
+              to="/"
+              :text="item.label"
+              class="border-box"
+            >
+              <img slot="icon" v-lazy="item.url" width="57" height="57" class="mb8" />
+            </van-grid-item>
+          </van-grid>
         </section-box>
         <!-- slot -->
         <slot></slot>
@@ -67,12 +109,8 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import GameItem from '@/views/hall/GameItem'
 export default {
   name: 'GameHallPage',
-  components: {
-    GameItem
-  },
   data() {
     return {
       refresh: true,
@@ -203,11 +241,6 @@ export default {
   .index-h {
     box-sizing: border-box;
     height: calc(100% - 2.75rem - 58px);
-  }
-  .welfare-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
   }
 }
 </style>

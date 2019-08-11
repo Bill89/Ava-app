@@ -9,7 +9,34 @@
         :refreshColor="refreshColor"
         up
       >
-        <section-box title="用户信息" class="m10">包括资金、等级、充值、提现、投注记录、消息、设置等</section-box>
+        <div class="bcfff">
+          <UserInfo></UserInfo>
+          <van-grid :border="false" clickable class="mlr10">
+            <van-grid-item
+              v-for="(item, i) in moneyBtns"
+              :key="i"
+              :icon="item.icon"
+              to="/"
+              :text="item.text"
+              @click="moneyitemClick($event, i)"
+            />
+          </van-grid>
+          <van-cell-group class="tl">
+            <template v-for="(item, i) in configList">
+              <van-cell
+                :key="i"
+                :title="item.title"
+                is-link
+                to="index"
+                @click="configClick($event, i)"
+              />
+            </template>
+          </van-cell-group>
+        </div>
+        <div class="mt16 mb6">
+          <van-button size="large" class="red" tag="div">退出账户</van-button>
+        </div>
+        <!-- <section-box title="用户信息" class="m10">包括资金、等级、充值、提现、投注记录、消息、设置等</section-box> -->
         <!-- slot -->
         <slot></slot>
       </VScroll>
@@ -17,9 +44,11 @@
   </div>
 </template>
 <script>
+import UserInfo from '@/views/me/UserInfo'
 import { mapGetters } from 'vuex'
 export default {
   name: 'MePage',
+  components: { UserInfo },
   data() {
     return {
       refresh: true,
@@ -30,10 +59,53 @@ export default {
         // loadBgColor: this.CONSTS.meTopColor,
         // textColor: this.CONSTS.updateColor,
         // cirCleColor: this.CONSTS.jumpBcColor
-      }
+      },
+      moneyBtns: [
+        {
+          text: '快捷充值',
+          icon: 'cash-back-record',
+          routerPath: ''
+        },
+        {
+          text: '提现',
+          icon: 'peer-pay',
+          routerPath: ''
+        },
+        {
+          text: '资金明细',
+          icon: 'cash-on-deliver',
+          routerPath: ''
+        },
+        {
+          text: '投注记录',
+          icon: 'records',
+          routerPath: ''
+        }
+      ],
+      configList: [
+        {
+          title: '我的银行卡',
+          routerPath: ''
+        },
+        {
+          title: '消息中心',
+          routerPath: ''
+        },
+        {
+          title: '修改登录密码',
+          routerPath: ''
+        },
+        {
+          title: '修改安全密码',
+          routerPath: ''
+        },
+        {
+          title: '安全问题',
+          routerPath: ''
+        }
+      ]
     }
   },
-  components: {},
   computed: {
     chinesered() {
       return this.theme === 'chinesered' ? 'chinesered' : ''
@@ -46,6 +118,17 @@ export default {
       },
       deep: true
     }
+  },
+  activated() {
+    this.$refs.nfScroll.refresh()
+  },
+  mounted() {
+    // 初始化页面按钮提示
+    // this.common.initPageBtns('HomePage', this.blocks)
+
+    setTimeout(() => {
+      this.onRefresh()
+    }, 200)
   },
   methods: {
     // 下拉刷新
@@ -61,22 +144,21 @@ export default {
     // 刷新视图，外层调用
     refreshView() {
       this.$refs.nfScroll.refresh()
+    },
+    moneyitemClick(value, i) {
+      console.log(i)
+    },
+    configClick(value, i) {
+      console.log(this.configList[i].title, i)
     }
-  },
-  activated() {
-    this.$refs.nfScroll.refresh()
-  },
-  mounted() {
-    // 初始化页面按钮提示
-    // this.common.initPageBtns('HomePage', this.blocks)
-
-    setTimeout(() => {
-      this.onRefresh()
-    }, 200)
   }
 }
 </script>
 <style scoped lang="scss">
 .home-page {
+  .index-h {
+    box-sizing: border-box;
+    height: calc(100% - 2.75rem);
+  }
 }
 </style>

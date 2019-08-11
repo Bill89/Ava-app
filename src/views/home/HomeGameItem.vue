@@ -22,7 +22,7 @@
       <span class="recommend-no">2</span>
     </div>
     <div class="tl mt6">
-      <van-button plain type="danger">进入投注</van-button>
+      <van-button plain round type="danger" class="h30 lh30">进入投注</van-button>
     </div>
   </div>
 </template>
