@@ -1,4 +1,5 @@
 # app
+[预览地址](https://bill89.github.io/bc-seed/dist/index.html#/index)
 
 ## Project setup
 ```
