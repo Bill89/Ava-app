@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="trend-page">
     <header class="bcblue tc f18 h44 lh44 white">走势</header>
     <div class="index-h ofh">
       <VScroll
@@ -9,7 +9,10 @@
         :refreshColor="refreshColor"
         up
       >
-        <section-box title="所有彩票走势" class="m10">可自定义排序</section-box>
+        <!-- <section-box title="所有彩票走势" class="m10">可自定义排序</section-box> -->
+        <section class="mb6">
+          <TrendItem v-for="(item, i) in gameAllHistory" :item="item" :key="i"></TrendItem>
+        </section>
         <!-- slot -->
         <slot></slot>
       </VScroll>
@@ -18,8 +21,12 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import TrendItem from '@/views/trend/TrendItem'
 export default {
   name: 'TrendPage',
+  components: {
+    TrendItem
+  },
   data() {
     return {
       refresh: true,
@@ -30,10 +37,155 @@ export default {
         // loadBgColor: this.CONSTS.meTopColor,
         // textColor: this.CONSTS.updateColor,
         // cirCleColor: this.CONSTS.jumpBcColor
-      }
+      },
+      gameAllHistory: [
+        {
+          gameId: 0,
+          gameName: '双色球',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        },
+        {
+          gameId: 0,
+          gameName: '大乐透',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        },
+        {
+          gameId: 0,
+          gameName: '世界杯',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        },
+        {
+          gameId: 0,
+          gameName: 'AG体育',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        },
+        {
+          gameId: 0,
+          gameName: '分分彩',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        },
+        {
+          gameId: 0,
+          gameName: '时时彩',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        },
+        {
+          gameId: 0,
+          gameName: '开元棋牌',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        },
+        {
+          gameId: 0,
+          gameName: '快3',
+          list: [
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            },
+            {
+              issue: '20190830-01',
+              lotteryNum: '6,8,12,22,23,26,5'
+            }
+          ]
+        }
+      ]
     }
   },
-  components: {},
   computed: {
     chinesered() {
       return this.theme === 'chinesered' ? 'chinesered' : ''
@@ -77,6 +229,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.home-page {
+.trend-page {
+  .index-h {
+    box-sizing: border-box;
+    height: calc(100% - 2.75rem);
+  }
 }
 </style>

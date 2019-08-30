@@ -18,7 +18,7 @@
           </header>
           <van-swipe :autoplay="5000" class="mt6">
             <van-swipe-item v-for="(image, index) in images" :key="index">
-              <img v-lazy="image.url" height="150" />
+              <img v-lazy="image.url" height="158" />
             </van-swipe-item>
           </van-swipe>
           <section-box title="历史游戏" class="m10">

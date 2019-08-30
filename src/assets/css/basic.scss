@@ -60,8 +60,7 @@ body {
   line-height: 1.5rem;
   background-color: #f5f5f5;
   color: #333333;
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 html,
 body {
@@ -396,6 +395,9 @@ input[type='radio']:checked + .nf-radio::after {
 }
 .p8 {
   padding: 0.5rem;
+}
+.p10 {
+  padding: 0.625rem;
 }
 .pt8 {
   padding-top: 0.5rem;
