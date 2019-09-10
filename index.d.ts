@@ -1,5 +1,7 @@
 // 导入包
 declare module 'vue-navigation'
+declare module '@/router/index'
+declare module '@/router/router'
 declare module '@/components/CommonUi'
 declare module '@/assets/js/consts'
 declare module '@/assets/js/common'

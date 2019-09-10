@@ -34,7 +34,7 @@
           </van-cell-group>
         </div>
         <div class="mt16 mb6">
-          <van-button size="large" class="red" tag="div">退出账户</van-button>
+          <van-button size="large" class="red" tag="div" @click="onLogout">退出账户</van-button>
         </div>
         <!-- <section-box title="用户信息" class="m10">包括资金、等级、充值、提现、投注记录、消息、设置等</section-box> -->
         <!-- slot -->
@@ -150,6 +150,31 @@ export default {
     },
     configClick(value, i) {
       console.log(this.configList[i].title, i)
+    },
+    // 退出
+    onLogout() {
+      this.avaDialog
+        .confirm({
+          title: '温馨提示',
+          message: '是否确认退出本次登录',
+          cancelButtonText: '取消',
+          confirmButtonText: '确定'
+        })
+        .then(() => {
+          this.clearData()
+        })
+        .catch(() => {})
+    },
+    clearData() {
+      this.common.isLogin(false)
+      this.common.setSesVal('resume_flag', '')
+      this.common.setLocVal('safe_out', 'true')
+      // this.$store.dispatch('updateAuthFlow', { authName: '登录/注册' })
+      this.router.replace('Login')
+      // this.$store.commit('SET_MYINTEGRAL_SCORE', {
+      //   key: 'activescore',
+      //   value: ''
+      // })
     }
   }
 }
