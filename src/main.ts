@@ -10,20 +10,22 @@ import CommonUi from '@/components/CommonUi'
 import consts from '@/assets/js/consts'
 import common from '@/assets/js/common'
 import utils from '@/assets/js/utils'
-
+import { api } from '@/assets/js/api/apiType'
+import http from '@/assets/js/api/http'
 // 全局引入
 import './registerServiceWorker'
 import './assets/css/basic.scss'
 import './assets/css/resetVant.scss'
 // 使用本地文字
 import 'vant/lib/icon/local.css'
-
 Vue.use(Navigation, { router, keyName: '_p' })
 Vue.use(CommonUi)
 
 Vue.prototype.CONSTS = consts.CONSTS
 Vue.prototype.common = common
 Vue.prototype.utils = utils
+Vue.prototype.api = api
+Vue.prototype.http = http
 
 Vue.config.productionTip = false
 Vue.config.errorHandler = (err, vm, info) => {
