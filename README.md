@@ -1,5 +1,5 @@
 # app
-[预览地址](https://bill89.github.io/bc-seed/dist/index.html#/index)
+[预览地址](https://bill89.github.io/Ava-app/dist)
 
 ## Project setup
 ```
