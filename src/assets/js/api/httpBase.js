@@ -14,39 +14,40 @@ Vue.use(Toast)
 
 function requestInterceptor(config, isKV = false) {
   // 先加载本地数据更新store
-  updateStore(config.data.function)
-  if (['AT005', 'NF001', 'NF002'].includes(config.data.function)) {
-    // 2、开户页面，第三方合作开户引流要记录第三方的合作渠道号字段subChannel (手机网站)
-    let subChannel = commonJs.getSesVal('subChannel')
-    subChannel && (config.data.thirdpart = commonJs.getSesVal('subChannel'))
-  }
-  let randomNum = commonJs.generateRandom(16)
-  let randomToken = commonJs.createReqtoken(randomNum)
-  let deviceInfo = commonJs.getLocVal(constJs.CONSTS.CKEY_DEVICEINFO) ? JSON.parse(commonJs.getLocVal(constJs.CONSTS.CKEY_DEVICEINFO)) : {}
-  config.data.reqrandom = randomNum
-  config.data.reqtoken = randomToken
-  config.data.devicetype = deviceInfo.devicetype
-  config.data.clientversion = deviceInfo.clientVersion
-  config.data.platform = commonJs.getLocVal('app_platform')
-  config.data.udid = deviceInfo.devicetoken
-  config.data.uuid = deviceInfo.devicetoken
-  !config.data.channel && (config.data.channel = commonJs.getLocVal('channel') || 'iapp')
-  !config.data.ignoreLoading && (config.data.ignoreLoading = false) // 是否不显示loading框
+  // updateStore(config.data.function)
+  // if (['AT005', 'NF001', 'NF002'].includes(config.data.function)) {
+  //   // 2、开户页面，第三方合作开户引流要记录第三方的合作渠道号字段subChannel (手机网站)
+  //   let subChannel = commonJs.getSesVal('subChannel')
+  //   subChannel && (config.data.thirdpart = commonJs.getSesVal('subChannel'))
+  // }
+  // let randomNum = commonJs.generateRandom(16)
+  // let randomToken = commonJs.createReqtoken(randomNum)
+  // let deviceInfo = commonJs.getLocVal(constJs.CONSTS.CKEY_DEVICEINFO) ? JSON.parse(commonJs.getLocVal(constJs.CONSTS.CKEY_DEVICEINFO)) : {}
+  // config.data.reqrandom = randomNum
+  // config.data.reqtoken = randomToken
+  // config.data.devicetype = deviceInfo.devicetype
+  // config.data.clientversion = deviceInfo.clientVersion
+  // config.data.platform = commonJs.getLocVal('app_platform')
+  // config.data.udid = deviceInfo.devicetoken
+  // config.data.uuid = deviceInfo.devicetoken
+  // !config.data.channel && (config.data.channel = commonJs.getLocVal('channel') || 'iapp')
+  // !config.data.ignoreLoading && (config.data.ignoreLoading = false) // 是否不显示loading框
 
-  if (api.AUTO_LOGIN === config.data.function && deviceInfo && deviceInfo.res) {
-    config.data.jpushid = deviceInfo.res.jpushid
-    config.data.devicenotifystatus = deviceInfo.res.deviceNotifyStatus
-  }
-  if (commonJs.isLogin()) {
-    config.data.userid = commonJs.Decrypt(commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.idno'))
-    config.data.accountId = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.accountId')
-    config.data.eqcustno = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.eqcustno')
-    config.data.custno = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.custno')
-    config.data.originalString = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.originalString')
-    config.data.sessionkey = commonJs.getDecryptSessionkey()
-  }
+  // if (api.AUTO_LOGIN === config.data.function && deviceInfo && deviceInfo.res) {
+  //   config.data.jpushid = deviceInfo.res.jpushid
+  //   config.data.devicenotifystatus = deviceInfo.res.deviceNotifyStatus
+  // }
+  // if (commonJs.isLogin()) {
+  //   config.data.userid = commonJs.Decrypt(commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.idno'))
+  //   config.data.accountId = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.accountId')
+  //   config.data.eqcustno = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.eqcustno')
+  //   config.data.custno = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.custno')
+  //   config.data.originalString = commonJs.getPhoneCaching(constJs.CONSTS.CKEY_USERINFO + '.originalString')
+  //   config.data.sessionkey = commonJs.getDecryptSessionkey()
+  // }
   if (!isKV) {
-    config.data = qs.stringify(config.data)
+    // config.data = qs.stringify(config.data)
+    config.data = config.data
   }
   return config
 }
@@ -96,69 +97,55 @@ function responseErrorInterceptor(error) {
 
 // 请求成功
 function responseSuccess(functionNo, result, resolve, reject) {
-  // commonJs.getSesVal('consoleLog') && console.info(functionNo + '： ' + JSON.stringify(result.data))
-  let unnecessaryFuncArr = ['COUP001', 'NF706']
-  const data = result.data || result
   if (!result || result.data === undefined || !result.data) {
     reject({ message: '数据返回错误！' })
     return
   }
-  if (!unnecessaryFuncArr.includes(functionNo)) {
-    if (result.data.code === constJs.CONSTS.SUCCESS_FLAG) {
-      resolve(data)
-    } else if (result.data.code === constJs.CONSTS.TIME_OUT) {
-      commonJs.isLogin(false)
-      setTimeout(() => {
-        commonJs.isUserLogin()
-        Toast(result.data.message)
-      }, 0)
-    } else if (result.data.code === constJs.CONSTS.ETS_IDX001) {
-      // 请求数据格式不正确
-      if (result.status) {
-        result.response = {}
-        result.response.status = result.status
-      }
-      reject(data)
-    } else {
-      if (result.status !== undefined) {
-        result.response = {}
-        result.response.status = result.status
-      }
-      reject(data)
-    }
-  } else {
+  const data = result.data || result
+  if (data.code === constJs.CONSTS.SUCCESS_FLAG) {
     resolve(data)
+  } else if (data.code === constJs.CONSTS.TIME_OUT) {
+    commonJs.isLogin(false)
+    setTimeout(() => {
+      commonJs.isUserLogin()
+      Toast(data.msg)
+    }, 0)
+  } else if (data.code === constJs.CONSTS.ETS_IDX001) {
+    // 请求数据格式不正确
+    if (result.status) {
+      result.response = {}
+      result.response.status = result.status
+    }
+    reject(data)
+  } else {
+    if (result.status !== undefined) {
+      result.response = {}
+      result.response.status = result.status
+    }
+    reject(data)
   }
 }
 // 请求失败
 function responseError(resolve, reject) {}
 // post请求
-function post(url, functionNo, data = {}, isNeedCache = false, httpObj) {
+function post(url, data = {}, isNeedCache = false, httpObj) {
   // 如果该API需要登录才允许访问，没登录则不处理
-  if (ignoreAPI.isIgNotLoginAPI(functionNo) && !commonJs.isLogin()) {
-    return new Promise((resolve, reject) => {
-      reject()
-    })
+  if (ignoreAPI.isIgNotLoginAPI(url) && !commonJs.isLogin()) {
+    return Promise.reject()
   }
-  data = Object.assign({}, { function: functionNo }, data)
   // loading框计数
   if (data && !data.ignoreLoading && store.state.loadingState !== '0') {
-    const f = blockApi.includes(data.function) ? '2' : '1'
-    store.commit('ADD_COUNT', functionNo)
-    store.commit('SHOW_LOADING', f)
+    const f = blockApi.includes(url) ? '2' : '1'
+    // store.commit('ADD_COUNT', url)
+    // store.commit('SHOW_LOADING', f)
   }
   if (isNeedCache) {
-    saveCacheFunction(functionNo)
+    saveCacheFunction(url)
   } else {
-    removeCacheFunction(functionNo)
+    removeCacheFunction(url)
   }
-  if (process.env.SERVER_URL.indexOf('120.') !== -1) {
-    // TODO 兼容rp2 mock数据
-    url = functionNo
-  }
-  url = functionNo
   if (httpObj && typeof httpObj.nfpost === 'function') {
-    return httpObj.nfpost(url, functionNo, data, isNeedCache)
+    return httpObj.nfpost(url, data, isNeedCache)
   }
 }
 /**
@@ -193,6 +180,7 @@ function updateStore(functionNo) {
 var setLocalData = (key, data) => {
   return localCache.setData(key, data)
 }
+// 保存请求成功后的数据
 function saveResponseData(res) {
   if (res.config.data) {
     try {
@@ -214,9 +202,6 @@ function saveResponseData(res) {
   }
 }
 function isIncludeMutation(funcName) {
-  // if(!funcName){
-  //   return funcName
-  // }
   funcName = `LoadLocal${funcName}`
   for (let m in store._mutations) {
     if (m === funcName) {
@@ -225,13 +210,7 @@ function isIncludeMutation(funcName) {
   }
   return false
 }
-// TODO
-function rediect(config) {
-  // mock 数据的url 最后一部分的命名必须是参数 function
-  var functionNo = config.url
-  var rediectUrl = process.env.SERVER_URL + /*config.method +*/ +functionNo
-  return rediectUrl
-}
+
 export default {
   post,
   requestInterceptor,

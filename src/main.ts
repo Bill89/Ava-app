@@ -10,7 +10,7 @@ import router from '@/router/router'
 import CommonUi from '@/components/CommonUi'
 import consts from '@/assets/js/consts'
 import common from '@/assets/js/common'
-import utils from '@/assets/js/utils'
+import utils from '@/assets/js/tool/utils'
 import { api } from '@/assets/js/api/apiType'
 import http from '@/assets/js/api/http'
 // 全局引入

@@ -41,7 +41,7 @@
  * @method scrollIntoView 使内容滚动到视图区域，同原生srollIntoView,默认参数true
  */
 import IScroll from '@/assets/js/iscroll-probe'
-import { formatDate } from '@/assets/js/utils'
+import { formatDate } from '@/assets/js/tool/utils'
 export default {
   name: 'VScroll',
   props: {

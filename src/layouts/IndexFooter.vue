@@ -26,7 +26,7 @@ import activeBtn1 from '@/assets/img/nav-home-active.png'
 import activeBtn2 from '@/assets/img/nav-discover-active.png'
 import activeBtn3 from '@/assets/img/nav-product-active.png'
 import activeBtn4 from '@/assets/img/nav-me-active.png'
-import { extend } from '@/assets/js/utils'
+import { extend } from '@/assets/js/tool/utils'
 let defaultList = [
   {
     text: '首页',

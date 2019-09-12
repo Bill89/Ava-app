@@ -17,7 +17,7 @@ export default new Router({
     },
     {
       path: '/index',
-      name: 'index',
+      name: 'Index',
       component: () => import(/* webpackChunkName: "index" */ '@/layouts/Index')
     },
     {
